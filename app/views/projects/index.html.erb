@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "homepage" %>
+
+<div id = "name"> 
+  <div> Matthew Carroll </div>
+  <div> Software Engineer, Veteran, Tech Enthusist</div>
+</div>
+
+<ul>
+  <% @projects.each do | project | %>
+    <li>
+      <a href="<%= project_path(project) %>">
+      <%= project.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add Project", new_project_path %>

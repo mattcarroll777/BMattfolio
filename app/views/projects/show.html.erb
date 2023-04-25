@@ -1,0 +1,25 @@
+<h1> <%= @project.title %> </h1>
+
+<% if @project.main.attached? %>
+  <%= image_tag @project.main %>
+<% end %>
+
+<div> <%= @project.body %> </div>
+
+<% if @project.supimages.attached? %>
+  <ul>
+    <% @project.supimages.each do | image | %>
+      <li>
+        <%= image_tag image %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+<% end %> 
+
+<ul>
+  <li> <%= link_to "Edit", edit_project_path(@project) %> </li>
+  <li>  <%= link_to "Destroy", project_path(@project), data: {
+    turbo_method: :delete
+  } %> </li>
+</ul>
